@@ -1,0 +1,9 @@
+{% load coffee_tags %}
+<div class="row poll">   
+    <form method="POST" action="">
+    {% csrf_token %}
+    {% include 'coffee/partial/form.html' %}
+    {% include 'polls/poll/formset.html' %}
+        <input type="submit" class="btn btn-primary " />
+    </form>
+</div>

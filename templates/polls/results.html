@@ -1,0 +1,25 @@
+{% extends 'polls/base.html' %}
+{% load poll_tags %}
+
+{% block extra_head %}
+    {% include 'polls/partial/chart_head.html' %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% set_chart_types %}
+    {% if 'pie' in chart_types %}
+        {% set_data %}
+    {% endif %}
+    {% if 'bar' in chart_types %}
+        {% set_bar_data %}
+        {% set_bar_labels %}
+    {% endif %}    
+    {% for chart_type in chart_types %}
+    <div class="results">
+    {% include 'polls/partial/chart.html' %}
+        <div id="chart-{{ chart_type }}-{{ poll.pk }}" class="jqplot-target"></div>
+    </div>
+    {% endfor %}
+    {% include 'polls/partial/navigation.html' %}
+{% endblock %}

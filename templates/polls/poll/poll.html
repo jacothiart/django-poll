@@ -1,0 +1,13 @@
+{% extends 'polls/base.html' %}
+{% load poll_tags %}
+
+{% block content %}
+    <div class="container">
+    {% poll_form form.instance request %}
+    {% if form.instance.pk %}
+        {% with object=form.instance %}
+            {% include 'polls/partial/navigation.html' %}
+        {% endwith %}
+    {% endif %}
+    </div>
+{% endblock %}

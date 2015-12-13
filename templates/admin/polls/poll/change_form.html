@@ -1,0 +1,25 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+{% load poll_tags %}
+
+{% block after_related_objects %}
+    {% if change %}
+        {% with poll=adminform.form.instance %}
+            {% include 'polls/partial/chart_head.html' %}
+            {% set_chart_types %}
+            {% if 'pie' in chart_types %}
+                {% set_data %}
+            {% endif %}
+            {% if 'bar' in chart_types %}
+                {% set_bar_data %}
+                {% set_bar_labels %}
+            {% endif %}    
+            {% for chart_type in chart_types %}
+            <div class="results">
+            {% include 'polls/partial/chart.html' %}
+                <div id="chart-{{ chart_type }}-{{ poll.pk }}" class="jqplot-target"></div>
+            </div>
+            {% endfor %}
+        {% endwith %}   
+    {% endif %}
+{% endblock %}

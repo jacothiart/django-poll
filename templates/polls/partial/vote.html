@@ -1,0 +1,9 @@
+<div class="row poll vote">   
+    <p class="lead">{{ instance.question }}</p>
+    <form method="POST" action="{% url 'poll_vote' instance.pk %}" data-source=".results">
+    {% csrf_token %}
+    {% include 'coffee/partial/form.html' %}
+        <input type="hidden" name="pk" value="{{ instance.pk }}" />
+        <input type="submit" class="btn btn-primary " />
+    </form>
+</div>

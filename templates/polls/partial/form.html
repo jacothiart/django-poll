@@ -1,0 +1,22 @@
+{% load coffee_tags %}
+
+{% for hidden in form.hidden_fields %}
+    {{ hidden }}
+{% endfor %}
+{% for field in form.visible_fields %}
+    <div class="form-group">
+        {% detect_radio field %}
+        {% detect_checkbox field %}
+        {% if is_radio %}
+        <div class="radio">
+        {% endif %}
+        {% if is_checkbox %}
+        <div class="checkbox">
+        {% endif %}
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if is_radio or is_checkbox %}
+        </div>
+        {% endif %}
+    </div>
+{% endfor %}

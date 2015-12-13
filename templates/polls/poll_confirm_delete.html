@@ -1,0 +1,15 @@
+{% extends 'polls/base.html' %}
+{% load poll_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row poll">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{ object }}"?</p>
+                <input type="submit" value="Confirm" class="btn btn-primary"/>
+            </form>
+        </div>
+        {% include 'polls/partial/navigation.html' %}
+    </div>
+{% endblock %}

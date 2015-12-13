@@ -1,0 +1,24 @@
+{% extends 'polls/base.html' %}
+
+{% load paginate_tags %}
+
+{% block content %}
+    {{ block.super }}
+        <div class="row poll">
+            <a href="{% url 'poll_add' %}">Add a Poll</a>
+        </div>
+    {% paginate object_list %}
+    {% include 'paginate/paginate.html' %}
+    
+    {% for object in object_list %}
+        <div class="row poll">
+            <p class="lead">{{ object.question }}</p>
+            {% include 'polls/partial/navigation.html' %}
+        </div>
+    {% endfor %}
+    
+    {% include 'paginate/paginate.html' %}
+        <div class="row poll">
+            <a href="{% url 'poll_add' %}">Add a Poll</a>
+        </div>
+{% endblock %}

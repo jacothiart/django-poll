@@ -1,0 +1,12 @@
+{% if form.instance.pk %}
+<input type="hidden" name="pk" value="{{ form.instance.pk }}" />
+{% endif %}
+<div class="choice-form">
+{% for form in formset %}
+    <div class="form-group">
+    {{ form.id }}
+    {{ form.choice_text }}{% if formset.can_delete and form.instance.pk %}{{ form.DELETE }}{% endif %}
+    </div>
+{% endfor %}
+</div>
+{{ formset.management_form }}

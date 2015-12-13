@@ -1,0 +1,42 @@
+@import "../less/bootstrap3/variables.less";
+@import "../less/bootstrap3/mixins.less";
+
+@white: white;
+@red: red;
+
+.border-radius(@radius) {
+   .border-top-radius(@radius);
+   .border-bottom-radius(@radius);
+}
+
+.poll {
+    margin: 10px 0 20px 0;
+    background-color: lighten(@gray, 60%);
+    padding: 15px;
+    .border-radius(10px);
+    #gradient > .radial(@outer-color: lighten(@gray, 60%), @inner-color: @white);
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.align-center {
+    text-align: center;
+}
+
+h1 {
+    padding : 50px;
+    .border-radius(15px);
+    #gradient > .radial(@outer-color: lighten(@gray, 60%), @inner-color: @white);
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    li {    
+        background-color: darken(@red, 10%);
+        color: @white;
+        padding: 10px;
+    }
+}

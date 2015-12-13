@@ -1,0 +1,42 @@
+.poll {
+  margin: 10px 0 20px 0;
+  background-color: #eeeeee;
+  padding: 15px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-radial-gradient(circle, #ffffff, #eeeeee);
+  background-image: -moz-radial-gradient(circle, #ffffff, #eeeeee);
+  background-image: radial-gradient(circle, #ffffff, #eeeeee);
+  background-repeat: no-repeat;
+}
+.poll ul {
+  list-style: none;
+  padding: 0;
+}
+.align-center {
+  text-align: center;
+}
+h1 {
+  padding: 50px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#eeeeee));
+  background-image: -webkit-radial-gradient(circle, #ffffff, #eeeeee);
+  background-image: -moz-radial-gradient(circle, #ffffff, #eeeeee);
+  background-image: radial-gradient(circle, #ffffff, #eeeeee);
+  background-repeat: no-repeat;
+}
+.errorlist {
+  list-style: none;
+  padding: 0;
+}
+.errorlist li {
+  background-color: #cc0000;
+  color: #ffffff;
+  padding: 10px;
+}

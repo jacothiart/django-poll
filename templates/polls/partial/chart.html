@@ -1,0 +1,16 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    var data = {% if chart_type == 'pie' %}[{{ pie_data|safe }}]{% else %}{{ bar_data|safe }}{% endif %};
+    var ticks = ['May', 'June', 'July', 'August'];
+    $.jqplot ('chart-{{ chart_type }}-{{ poll.pk }}', data, { 
+        seriesDefaults: {renderer: {% if chart_type == 'pie' %}$.jqplot.PieRenderer, rendererOptions: {showDataLabels: true}{% endif %}{% if chart_type == 'bar' %}$.jqplot.BarRenderer,rendererOptions: {fillToZero: true}{% endif %}},
+        series:[{% for label in bar_labels %}{label: '{{ label|safe }}'}{% if not forloop.last %},{% endif %}{% endfor %}],
+        legend: { show:true, location: 'e' },
+        axes: {
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            }
+        }
+    });
+});
+</script>
